@@ -24,8 +24,6 @@ async def handle_user_join(message: types.Message):
     print(message.new_chat_members[0].id, "joined")
     if message.chat.id not in usertime_dbase:
         usertime_dbase[message.chat.id] = {}
-    if message.new_chat_members[0].id == 5134479597:
-        return
     if message.new_chat_members[0].id not in usertime_dbase[message.chat.id]:
         usertime_dbase[message.chat.id][message.new_chat_members[0].id] = time.time()
         with open("db.txt", 'w') as json_file:
